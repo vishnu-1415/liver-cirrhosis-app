@@ -1,14 +1,13 @@
-
-      import streamlit as st
-      import pickle
-      import numpy as np
-
-      # Load the model
-      with open("model.pkl", "rb") as f:
+import streamlit as st
+import pickle
+import numpy as np
+import pandas as pd
+ # Load the model
+with open("model.pkl", "rb") as f:
           model = pickle.load(f)
 
-          # Load the scaler
-          with open("normalizer.pkl", "rb") as f:
+ # Load the scaler
+ with open("normalizer.pkl", "rb") as f:
               scaler = pickle.load(f)
 
               st.set_page_config(page_title="Liver Cirrhosis Prediction", layout="centered")
