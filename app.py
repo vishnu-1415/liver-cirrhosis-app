@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 import pickle
-import pandas as pd
 
 # Load the model and normalizer
 with open("model.pkl", "rb") as model_file:
