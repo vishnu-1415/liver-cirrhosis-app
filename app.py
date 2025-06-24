@@ -4,10 +4,10 @@ import pickle
 
 # Load the model and normalizer
 with open("model.pkl", "rb") as model_file:
-    model = pickle.load(model_file)
+  model = pickle.load(model_file)
 
 with open("normalizer.pkl", "rb") as norm_file:
-    normalizer = pickle.load(norm_file)
+  normalizer = pickle.load(norm_file)
 
 # Streamlit app UI
 st.title("Liver Cirrhosis Prediction App 🧠")
@@ -29,24 +29,23 @@ gender_val = 1 if gender == "Male" else 0
 
 # Predict button
 if st.button("Predict"):
-    try:
-        input_data = np.array([[age, gender_val, total_bilirubin, direct_bilirubin,
+  try:
+    input_data = np.array([[age, gender_val, total_bilirubin, direct_bilirubin,
                                 alkaline_phosphotase, alamine_aminotransferase,
                                 aspartate_aminotransferase, total_proteins,
                                 albumin, albumin_globulin_ratio]])
 
-        input_data_scaled = normalizer.transform(input_data)
-        prediction = model.predict(input_data_scaled)
+     input_data_scaled = normalizer.transform(input_data)
+     prediction = model.predict(input_data_scaled)
 
-        if prediction[0] == 1:
-            st.error("⚠️ High risk of Liver Cirrhosis. Please consult a doctor.")
-        else:
-            st.success("✅ Low risk of Liver Cirrhosis. Keep taking care!")
+     if prediction[0] == 1:
+        st.error("⚠️ High risk of Liver Cirrhosis. Please consult a doctor.")
+     else:
+        st.success("✅ Low risk of Liver Cirrhosis. Keep taking care!")
 
-    except Exception as e:
-        st.error(f"Something went wrong: {e}")
-     
-                                                                                 st.error("⚠️ High Risk: Liver Cirrhosis Likely")
-                                                                                                                              else:
-                                                                                                                                      st.success("✅ Low Risk: No Liver Cirrhosis Detected")
+ except Exception as e:
+    st.error(f"Something went wrong: {e}")
+    st.error("⚠️ High Risk: Liver Cirrhosis Likely")
+ else:
+    st.success("✅ Low Risk: No Liver Cirrhosis Detected")
                                                                                                                                       
