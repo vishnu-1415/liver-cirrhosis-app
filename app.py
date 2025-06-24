@@ -48,4 +48,6 @@ if st.button("Predict"):
             st.success("✅ Low Risk of Liver Cirrhosis. Keep up healthy habits!")
     except Exception as e:
         st.warning(f"Prediction error: {e}")
+        st.write("Raw model output:", result)
+        
         
