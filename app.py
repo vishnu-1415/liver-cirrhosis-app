@@ -50,4 +50,4 @@ if st.button("Predict"):
         st.warning(f"Prediction error: {e}")
         st.write("Raw model output:", result)
         
-        
+   # updated     
